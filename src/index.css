@@ -1,3 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +18,41 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.modal-open {
+  overflow: hidden;
+}
+
+.nobar::-webkit-scrollbar {
+  display: none;
+}
+
+.navtext {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mytext {
+  background-size: 250% 250%;
+  animation: gradient 3s ease infinite;
+}
+
+.mybg{
+  background-color: #8DCD89;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
