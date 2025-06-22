@@ -37,7 +37,7 @@ const CartItems = (props) => {
     useEffect(() => {
         // eslint-disable-next-line
         Object.keys(cartOrder).map((cartItems) => {
-            if (props.items._id === cartItems) {
+            if (props.items._id == cartItems) {
                 setItemcount(cartOrder[cartItems].quantity);
                 setIsShow(true);
             }

@@ -6,7 +6,6 @@ import cartContext from '../context/cart/cartContext';
 const Navbar = () => {
 
     const [open, setOpen] = useState(false);
-    const [isCartOpen, setCartOpen] = useState(false);
 
     const context = useContext(cartContext);
     const { cartOrder, setCartOrder } = context;
@@ -41,9 +40,6 @@ const Navbar = () => {
         if (open) {
             setOpen(false);
         }
-        if (isCartOpen) {
-            setCartOpen(false);
-        }
     }
 
     let footerLinks = [
@@ -63,13 +59,12 @@ const Navbar = () => {
     let navLinks = [
         { name: "Home", link: "/" },
         { name: "My Plan", link: "/myplan" },
-        { name: "Orders", link: "/cartorders" },
-        { name: "Category", link: "/myplan" }
+        { name: "Orders", link: "/cartorders" }
     ];
 
     let allLinks = [
         { name: "Home", link: "/", logo: "fa-home" },
-        { name: "Category", link: "/myplan", logo: "fa-window-restore" },
+        { name: "My Plan", link: "/myplan", logo: "fa-window-restore" },
         { name: "Orders", link: "/cartorders", logo: "fa-shopping-basket" },
         { name: "Profile", link: "/userlogin", logo: "fa-user-o" }
     ];

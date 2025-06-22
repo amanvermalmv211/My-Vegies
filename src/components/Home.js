@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Products from './products/Products';
+import dailyUse, { fruits, greenVegetables, leafyVegetables } from './products/ListofProducts';
 
 const Home = () => {
 
@@ -16,7 +17,7 @@ const Home = () => {
           </div>
 
           <div className='w-full h-44 md:h-80 lg:h-72'>
-            <img src="https://img.freepik.com/free-photo/large-set-isolated-vegetables-white-background_485709-44.jpg" alt="" className='w-full h-full object-contain z-10 mix-blend-darken hidden'/>
+            <img src="https://img.freepik.com/free-photo/large-set-isolated-vegetables-white-background_485709-44.jpg" alt="" className='w-full h-full object-contain z-10 mix-blend-darken hidden' />
 
             <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzE2NmdyN2FvM3J4dTN5dXFmdG85NnVqMmV3Z3p6ZWF3aWNubnJrNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zqtOYPQZ8Kb5pMlH8p/giphy.gif" alt="" className='w-full h-full object-contain mix-blend-darken' />
 
@@ -34,10 +35,10 @@ const Home = () => {
       </div>
 
       <div className='mb-10'>
-        <Products title="Daily Use" />
-        <Products title="Fruits" />
-        <Products title="Leave Items" />
-        <Products title="Green Vegitables" />
+        <Products title="Daily Use" data={dailyUse} />
+        <Products title="Green Vegitables" data={greenVegetables} />
+        <Products title="Fruits" data={fruits} />
+        <Products title="Leave Items" data={leafyVegetables} />
       </div>
 
     </>

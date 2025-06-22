@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import cartContext from '../../context/cart/cartContext';
 import CartItems from './CartItems';
 import Products from '../products/Products';
+import dailyUse, { fruits, greenVegetables, leafyVegetables } from '../products/ListofProducts';
 
 const CartOrders = () => {
 
@@ -9,17 +10,10 @@ const CartOrders = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    let allProducts = [
-        { _id: "100", name: "Potato", price: "30", dprice: "18", capicity: "1kg", imglink: "https://www.seekpng.com/png/detail/423-4230435_potato-hd-png-potato-vegetables.png" },
-        { _id: "1", name: "Onion", price: "60", dprice: "40", capicity: "1kg", imglink: "https://freepngimg.com/save/144-red-onion-png-image/3191x1675" },
-        { _id: "2", name: "Cabbage", price: "30", dprice: "23", capicity: "1kg", imglink: "https://i.pinimg.com/736x/7f/68/5f/7f685f54733d5309c1c3918ffa8b824e.jpg" },
-        { _id: "3", name: "Cauliflower", price: "30", dprice: "28", capicity: "1kg", imglink: "https://pngimg.com/d/cauliflower_PNG12679.png" },
-        { _id: "4", name: "Green Chilli", price: "0", dprice: "36", capicity: "250g", imglink: "https://i.pinimg.com/originals/3c/42/5a/3c425a418d2c6b4670ee7d47c799a80d.png" },
-        { _id: "5", name: "Tomato", price: "40", dprice: "29", capicity: "500g", imglink: "https://purepng.com/public/uploads/large/purepng.com-tomatovegetables-tomato-941524712357ikhy3.png" },
-        { _id: "6", name: "Ginger", price: "80", dprice: "70", capicity: "250g", imglink: "https://pngimg.com/d/ginger_PNG16797.png" },
-        { _id: "7", name: "Garlic", price: "60", dprice: "43", capicity: "250g", imglink: "https://static.vecteezy.com/system/resources/previews/027/214/959/original/garlic-garlic-garlic-transparent-background-ai-generated-free-png.png" },
-        { _id: "8", name: "Brinjal", price: "30", dprice: "25", capicity: "1kg", imglink: "https://freepngimg.com/save/13029-eggplant-free-download-png/346x347" }
-    ];
+
+
+    let allProducts = dailyUse.concat(greenVegetables).concat(fruits).concat(leafyVegetables);
+    // let allProducts = 
 
     const context = useContext(cartContext);
     const { cartOrder, clearCart } = context;
@@ -59,8 +53,8 @@ const CartOrders = () => {
                                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:mb-8 md:grid-cols-4 lg:grid-cols-5 px-4 lg:px-0">
 
                                         {
-                                            allProducts.map((items) => (
-                                                <CartItems keys={items} items={items} />
+                                            allProducts.map((items, idx) => (
+                                                <CartItems keys={idx} items={items} />
                                             ))
                                         }
 
@@ -78,7 +72,8 @@ const CartOrders = () => {
                         </>
 
                 }
-                <Products title="Daily Use" />
+                <Products title="Fruits" data={fruits}/>
+                <Products title="Green Vegitables" data={greenVegetables}/>
 
             </div>
         </>

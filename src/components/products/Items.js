@@ -40,7 +40,7 @@ const Items = (props) => {
     useEffect(() => {
         // eslint-disable-next-line
         Object.keys(cartOrder).map((cartItems) => {
-            if (props.myLink._id === cartItems) {
+            if (props.myLink._id == cartItems) {
                 setItemcount(cartOrder[cartItems].quantity);
             }
         });

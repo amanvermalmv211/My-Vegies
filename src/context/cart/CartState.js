@@ -36,30 +36,8 @@ const CartState = (props) => {
         props.setCart(0);
     }
 
-    let initialState = [];
-    const [items, setItems] = useState(initialState);
-
-    const toggleItems = (details) => {
-        let flag = false;
-        for(var i=0; i<items.length; i++){
-            if(items[i].name === details.name){
-                flag = true;
-                break;
-            }
-        }
-
-        if(!flag){
-            setItems(items.concat(details));
-        }
-    }
-
-    const deleteItems = (name) => {
-        const newItems = items.filter((item) => { return item.name !== name });
-        setItems(newItems);
-    }
-
     return (
-        <CartContext.Provider value={{ cartOrder, setCartOrder, toggleCartOrder, clearCart, items, setItems, toggleItems, deleteItems }}>
+        <CartContext.Provider value={{ cartOrder, setCartOrder, toggleCartOrder, clearCart }}>
             {props.children}
         </CartContext.Provider>
     )
